@@ -56,7 +56,13 @@ namespace SayBergETrade
                 opt.ClientId = "438016840892-0gsbjhikfm44kok343elcd13dmatv5k5.apps.googleusercontent.com";
                 opt.ClientSecret = "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";
             });
-             
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,7 +83,7 @@ namespace SayBergETrade
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 

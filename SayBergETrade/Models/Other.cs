@@ -13,8 +13,9 @@ namespace SayBergETrade.Models
         public const string Role_Member = "Üye";//Google ile giriş yapılacak
         public const string Role_Admin = "Admin";
         public const string Role_User = "User";
+        public const string ssShoppingCart = "Shopping Cart Session";
 
-        public static string UserName { get; set; }
+         
 
     }
 }
