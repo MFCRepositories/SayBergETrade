@@ -16,7 +16,7 @@ namespace SayBergETrade.Models
         public string Title { get; set; } 
         public string Description { get; set; }
         [Required]
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Image { get; set; }
         public bool IsHome { get; set; }
         public bool IsStock { get; set; }

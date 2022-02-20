@@ -29,6 +29,13 @@ namespace SayBergETrade.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var products = _db.Products.Where(i=>i.IsHome).ToList();
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim!=null)
+            {
+                var count = _db.ShoppingCarts.Where(i=>i.ApplicationUserId==claim.Value).ToList().Count;
+                HttpContext.Session.SetInt32(Other.ssShoppingCart,count);
+            }
             return View(products);
         }
 
